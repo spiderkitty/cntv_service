@@ -1,0 +1,18 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[dev-packages]
+
+[packages]
+aiohttp = {extras = ["aiodns", "brotlipy", "cchardet"],version = "*"}
+jupyterlab = "*"
+pandas = "*"
+papermill = {index = "http://pypi.douban.com/simple",version = "*"}
+pdbpp = {index = "http://pypi.douban.com/simple",version = "*"}
+click = {index = "http://pypi.douban.com/simple",version = "*"}
+youtube-dl = {index = "http://pypi.douban.com/simple",version = "*"}
+
+[requires]
+python_version = "3.6"
