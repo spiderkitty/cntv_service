@@ -13,7 +13,12 @@ def get_urls(start_date, end_date, year, month):
     if not start_date:
         start_date = datetime.date(year, month, day=1).strftime("%Y%m%d")
     if not end_date:
-        end_date = datetime.date(year, month+1, day=1) - datetime.timedelta(days=1)
+        if month + 1 > 12:
+            year = year + 1
+            month = 12
+        else:
+            month = month + 1
+        end_date = datetime.date(year, month, day=1) - datetime.timedelta(days=1)
         end_date = end_date.strftime("%Y%m%d")
 
     pm.execute_notebook(
@@ -28,6 +33,7 @@ def get_urls(start_date, end_date, year, month):
     )
     nb = pm.read_notebook('output.ipynb')
     click.echo('\n'.join(nb.data['dn_list']))
+
 
 if __name__ == '__main__':
     get_urls()
