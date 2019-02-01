@@ -15,18 +15,15 @@ def get_urls(start_date, end_date, year, month, program):
         start_date = datetime.date(year, month, day=1).strftime("%Y%m%d")
     if not end_date:
         if month + 1 > 12:
-            year = year + 1
-            month = 12
+            end_date = datetime.date(year=year+1, month=1, day=1) - datetime.timedelta(days=1)
         else:
-            month = month + 1
-        end_date = datetime.date(year, month, day=1) - datetime.timedelta(days=1)
-        end_date = end_date.strftime("%Y%m%d")
+            end_date = datetime.date(year, month+1, day=1) - datetime.timedelta(days=1)
+    end_date = end_date.strftime("%Y%m%d")
 
     program_map = {
         1: 'TOPC1451557646802924',  # 健康之路
         2: 'TOPC1451546588784893',  # 生活圈
     }
-
     pm.execute_notebook(
         './cntv_program_month_data.ipynb',
         './output.ipynb',
