@@ -14,6 +14,7 @@ pdbpp = {index = "http://pypi.douban.com/simple",version = "*"}
 click = {index = "http://pypi.douban.com/simple",version = "*"}
 youtube-dl = {index = "http://pypi.douban.com/simple",version = "*"}
 azure-storage-blob = {index = "http://mirrors.aliyun.com/pypi/simple/",version = "==1.4.0"}
+nbconvert = {index = "http://mirrors.aliyun.com/pypi/simple/", version = "==5.5"}
 
 [requires]
 python_version = "3.6"
